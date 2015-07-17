@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+shopt -s globstar
+
+SRCDIR="$(dirname "$(readlink -f "$0")")"
+DIR="$(cd "$(dirname "$0")" && pwd)"
+
+for file in $SRCDIR/.[^.]* ; do
+    filename=$(basename $file)
+    ln -s file $SRCDIR/$filename 
+done
